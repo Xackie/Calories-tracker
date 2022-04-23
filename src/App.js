@@ -1,0 +1,102 @@
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import React,{useState,useEffect} from 'react'
+import './App.css';
+import AppBar from './components/appbar/AppBar'
+import AppCounter from './components/appbar/AppCounter'
+import AppDelete from './components/appbar/AppDelete'
+import ControlInputs from './components/appcontrols/ControlInputs'
+import MealItems from './components/AppMealItems/MealItems';
+import axios from 'axios';
+
+const App=()=> {
+  const [meals, setmeals] = useState([]);
+  const [mealname, setmealname] = useState("");
+  const [calories, setcalories] = useState(0);
+  
+const addmealhandeler=()=>{
+ 
+const oldmeal=meals?[...meals]:[]; 
+
+const Meal={
+  mealname,
+  calories,
+
+  id:Math.floor(Math.random() * 10000)
+};
+
+const newmeals=oldmeal.concat(Meal);
+
+  if (mealname===""|| calories<=0) {
+    alert("fields Cant be empty") 
+  }
+  else{
+    setmeals(newmeals);
+    // localStorage.setItem("meals",JSON.stringify(newmeals));
+
+    axios.post('http://localhost:8888/meals/add',{mealname,calories}).then(()=>
+    axios.get("http://localhost:8888/meals/"))
+    .then((res) => setmeals(res.data))
+      };
+  console.log(Meal);
+  setmealname("");
+setcalories(0);
+}
+
+
+const deletemealhandler=(id)=>{
+   const oldmeal=[...meals];
+   const newmeals=oldmeal.filter((Meal)=>Meal.id !== id);
+  
+//  localStorage.setItem("meals",JSON.stringify(newmeals));
+  axios.delete(`http://localhost:8888/meals/${id}`).then(()=>
+ axios.get("http://localhost:8888/meals/"))
+  .then((res) => setmeals(res.data))
+  
+
+console.log(newmeals)
+
+  };
+
+const alldeletehandler=()=>{   
+  meals?.map((meals)=> (
+  axios.delete(`http://localhost:8888/meals/${meals._id}`)).then(()=>axios.get("http://localhost:8888/meals/"))
+  )
+  
+  // .then((res) => setmeals(res.data));
+setmeals([]);
+ //  localStorage.setItem("meals",JSON.stringify());
+}
+
+useEffect(() => {
+  axios
+    .get("http://localhost:8888/meals/")
+    .then((res) => setmeals(res.data));
+    
+}, [setmeals]);
+
+
+const total= meals!==null?meals.map((Meal)=>Meal.calories).reduce((acc,value)=>acc +  +value,0):0;
+
+
+  return (
+      <div className="App">
+        <AppBar />
+        <AppCounter total={total}/>
+        <AppDelete alldeletehandler={alldeletehandler} meals={meals}/>
+        <ControlInputs 
+        addmealhandeler={addmealhandeler}
+        meals={meals}
+        mealname={mealname}
+        calories={calories}
+        setmealname={setmealname}
+        setcalories={setcalories}
+        /> 
+        <div className='meals_container'>
+        <MealItems meals={meals} deletemealhandler={deletemealhandler}/>
+        </div>      
+    </div>
+  );
+}
+
+export default App;
