@@ -58,6 +58,9 @@
   border: 1 px solid rgb(85, 82, 82);
 
 }
+.btn--btn-delete-all:hover{
+  background-color: rgb(55, 8, 3);
+}
 
 
 
@@ -74,10 +77,12 @@
   margin-top: 1%;
   padding-top: 0vh;
   font-size: 15px;
-
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 
 }
-
+.control_inputs input:hover{
+  background-color: rgb(186, 215, 215);
+}
 .control_inputs button {
 
   color: rgb(3, 0, 16);
@@ -87,6 +92,9 @@
   outline: none;
   border-radius: 5px;
   border: 1 px solid rgb(77, 21, 21);
+}
+.control_inputs button:hover{
+  background-color: rgb(46, 72, 46);
 }
 
 .meals_container {
@@ -125,6 +133,7 @@
   font-weight: 800;
   border-radius: 7px;
   background-color: rgb(190, 199, 199);
+  /* box-shadow: rgb(16 55 3 / 59%); */
 }
 
 .btn_delete {
@@ -133,6 +142,9 @@
   font-size: 15px;
   font-weight: 400;
   border-radius: 7px;
+}
+.btn_delete:hover{
+  background-color: rgb(55, 8, 3);
 }
 
 @media only screen and (max-width: 765px) {
@@ -154,3 +166,23 @@
   
 }
 }
+.paginate{
+  display: flex;
+  
+  list-style-type:none;
+  justify-content: center;
+
+}
+.pagination-items a{
+  margin-left: 8px;
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.pagination-items a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination-items a:hover:not(.active) {background-color: #ddd;}
