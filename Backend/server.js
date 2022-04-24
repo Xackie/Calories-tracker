@@ -32,8 +32,12 @@ connection.once('open',()=>{
 const mealsRouter=require('./routes/meals');
 app.use('/meals',mealsRouter);
  
-app.get("/",(req,res) => res.send("Response from the GET request"));
-
+// app.get("/",(req,res) => res.send("Response from the GET request"));
+app.use(express.static(path.join('/meals', 'build')));
+    
+    app.get('/', function (req, res) {
+      res.sendFile(path.join('/meals', 'build', 'index.html'));
+    });
 app.listen(port,()=>{
     console.log("App is listening to port:",{port})
 });
