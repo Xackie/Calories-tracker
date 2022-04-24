@@ -28,7 +28,6 @@ connection.once('open',()=>{
     console.log("mongodb connected");
 })
 
-
 const mealsRouter=require('./routes/meals');
 app.use('/meals',mealsRouter);
  
@@ -41,6 +40,3 @@ app.use(express.static(path.join('/meals', 'build')));
 app.listen(port,()=>{
     console.log("App is listening to port:",{port})
 });
-
-
-
