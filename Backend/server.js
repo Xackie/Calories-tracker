@@ -37,6 +37,7 @@ app.use(express.static(path.join('/meals', 'build')));
     app.get('/', function (req, res) {
       res.sendFile(path.join('/meals', 'build', 'index.html'));
     });
+    
 app.listen(port,()=>{
     console.log("App is listening to port:",{port})
 });

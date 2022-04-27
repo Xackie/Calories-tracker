@@ -6,10 +6,13 @@
   overflow-x: hidden;
   height: 95vh;
 }
-
+.meals_container{
+  display: flex;
+    justify-content: center;
+}
 .Navbar {
   display: flex;
-  width: 100%;
+  width: 98.7%;
   height: 38px;
   font-size: 30px;
   font-weight: 550;
@@ -17,12 +20,18 @@
   background-color: rgb(77, 63, 77);
   justify-content: center;
   color: blanchedalmond;
+
+}
+.Navbar:hover{
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .Navbar span {
   color: rgb(84, 206, 222);
 }
-
+.Navbar span:hover{
+  color: rgb(207, 13, 13);
+}
 .appcounter {
   display: flex;
   color: rgb(4, 8, 26);
@@ -33,8 +42,9 @@
   position: fixed;
 }
 
+
 .appcounter span {
-  color: rgb(89, 17, 17);
+  color: rgb(86, 7, 73);
 
 }
 
@@ -48,7 +58,7 @@
 
 .btn--btn-delete-all {
   margin-top: 0 px;
-  background-color: rgb(94, 12, 12);
+  background-color: rgb(105, 43, 43);
   color: rgb(179, 171, 171);
   text-align: center;
   right: 30px;
@@ -56,96 +66,13 @@
   outline: none;
   border-radius: 5px;
   border: 1 px solid rgb(85, 82, 82);
-
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
+
 .btn--btn-delete-all:hover{
   background-color: rgb(55, 8, 3);
 }
 
-
-
-.control_inputs {
-  margin: 10vh;
-}
-
-.control_inputs input {
-  margin: auto;
-  justify-content: space-around;
-  display: flex;
-  width: 30%;
-  height: 4vh;
-  margin-top: 1%;
-  padding-top: 0vh;
-  font-size: 15px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-
-}
-.control_inputs input:hover{
-  background-color: rgb(186, 215, 215);
-}
-.control_inputs button {
-
-  color: rgb(3, 0, 16);
-  background-color: rgb(81, 117, 81);
-  margin-top: 2%;
-  font-size: large;
-  outline: none;
-  border-radius: 5px;
-  border: 1 px solid rgb(77, 21, 21);
-}
-.control_inputs button:hover{
-  background-color: rgb(46, 72, 46);
-}
-
-.meals_container {
-
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.meal_item_wrapper {
-
-  height: auto;
-  width: 100%;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space;
-
-  flex-direction: column;
-  color: rgba(88, 7, 121, 0.656);
-}
-
-.meal_item_wrapper_list {
-  width: 35%;
-
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  margin: 10px 0;
-  padding: 5px;
-  font-size: 18px;
-  font-weight: 800;
-  border-radius: 7px;
-  background-color: rgb(190, 199, 199);
-  /* box-shadow: rgb(16 55 3 / 59%); */
-}
-
-.btn_delete {
-  background-color: rgb(98, 41, 41);
-  color: rgb(179, 171, 171);
-  font-size: 15px;
-  font-weight: 400;
-  border-radius: 7px;
-}
-.btn_delete:hover{
-  background-color: rgb(55, 8, 3);
-}
 
 @media only screen and (max-width: 765px) {
   .meal_item_wrapper_list {
@@ -166,18 +93,19 @@
   
 }
 }
+
+
 .paginate{
-  display: flex;
+  display:flex;
   
   list-style-type:none;
-  justify-content: center;
-
+  justify-content:center
 }
 .pagination-items a{
-  margin-left: 8px;
+  
   color: black;
   float: left;
-  padding: 8px 16px;
+  padding: 6px 10px;
   text-decoration: none;
 }
 .pagination-items a.active {
@@ -186,3 +114,67 @@
 }
 
 .pagination-items a:hover:not(.active) {background-color: #ddd;}
+
+
+.appcounter-2 {
+  display: flex;
+  color: rgb(4, 8, 26);
+  justify-content: space-evenly;
+  font-size: 25px;
+  margin-top: 40px;
+  position: fixed;
+ margin-left: 12px;
+  
+}
+.alert {
+ 
+  margin-left: 10px;
+  color: rgb(34, 20, 20);
+  font-size: 14px;
+  cursor: pointer;
+  opacity: .5;  
+  margin-top: 8px;
+
+
+}
+
+
+
+/* .control_inputs {
+  margin: 14vh;
+} */
+
+/* .control_inputs input {
+  display: inline-flex;
+  /* display: "flex"; */
+  /* flex-Direction: "column";
+  margin-left: 415px;
+  justify-content: space-around;
+  display: flex;
+  width: 28%;
+  height: 4vh;
+  margin-top: 1%;
+  padding-top: 0vh;
+  font-size: 15px;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;} */ 
+/* .control_inputs input:hover{
+  background-color: rgb(222, 229, 229);
+} */
+/* .control_inputs button { */
+  /* margin-left: 25px; */
+
+
+  /* color: rgb(3, 0, 16);
+  background-color: rgb(43, 141, 43);
+  margin-top: 2%;
+  font-size: large;
+  outline: none;
+  border-radius: 5px;
+  border: 1 px solid rgb(77, 21, 21); */
+ 
+  /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;}
+.control_inputs button:hover{
+  background-color: rgb(94, 173, 94);
+} */
+

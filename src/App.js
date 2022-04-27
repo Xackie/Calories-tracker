@@ -7,7 +7,7 @@ import AppCounter from "./components/appbar/AppCounter";
 import AppDelete from "./components/appbar/AppDelete";
 import ControlInputs from "./components/appcontrols/ControlInputs";
 import MealItems from "./components/AppMealItems/MealItems";
-import Pagination from "./components/Pagination";
+import Pagin from "./components/Pagination";
 import axios from "axios";
 
 const App = () => {
@@ -85,28 +85,22 @@ const App = () => {
           .map((Meal) => Meal.calories)
           .reduce((acc, value) => acc + +value, 0)
       : 0;
-  // if(total>25){
-  //   alert("you are done for the day")
-  // }
+     
+
+
   //current meals
   const indexofLastmeal = currentPage * mealsperPage;
   const indexofFirstmeal = indexofLastmeal - mealsperPage;
   const currentMeals = meals.slice(indexofFirstmeal, indexofLastmeal);
+
   const paginate = (pageNumber) => {
     setcurrentPage(pageNumber);
   };
 
-  // const onNext=(currentPage)=>{
-  //   setcurrentPage(currentPage+1)
-  // }
-  // const onPrev=(currentPage)=>{
-  //   setcurrentPage(currentPage-1)
-  // }
-
   return (
     <div className="App">
       <AppBar />
-      <AppCounter total={total} />
+      <AppCounter total={total}  />
       <AppDelete alldeletehandler={alldeletehandler} meals={meals} />
       <ControlInputs
         addmealhandeler={addmealhandeler}
@@ -117,9 +111,9 @@ const App = () => {
         setcalories={setcalories}
       />
       <div className="meals_container">
-        <MealItems meals={currentMeals} deletemealhandler={deletemealhandler} />
+       <MealItems meals={currentMeals} deletemealhandler={deletemealhandler} />
       </div>
-      <Pagination
+      <Pagin
         totalMeals={meals.length}
         mealsperPage={mealsperPage}
         paginate={paginate}
