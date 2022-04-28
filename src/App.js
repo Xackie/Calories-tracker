@@ -10,6 +10,9 @@ import MealItems from "./components/AppMealItems/MealItems";
 import Pagination from "./components/Pagination";
 import axios from "axios";
 
+const BackendApiBaseUrl = process.env.REACT_APP_BASE_URL;
+console.log(BackendApiBaseUrl);
+
 const App = () => {
   const [meals, setmeals] = useState([]);
   const [mealname, setmealname] = useState("");

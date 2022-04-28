@@ -1,8 +1,8 @@
 // import { useEffect } from "react";
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 
 function AppCounter({ total }) {
-  const [showElement, setShowElement] = useState(false);
+  // const [showElement, setShowElement] = useState(false);
   // useEffect((total) => {
   //   if (total > 2000) {
   //     setShowElement(true);

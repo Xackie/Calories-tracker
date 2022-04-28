@@ -28,7 +28,7 @@ const MealItems=({meals,deletemealhandler})=> {
     height:23,
     boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
     float:"right",
-    // marginLeft:"2vh"
+    marginLeft:"2vh"
   }
   });
   const classes = useStyles();
