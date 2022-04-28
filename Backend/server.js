@@ -3,6 +3,7 @@ const app=express();
 const cors=require("cors");
 const path=require("path");
 const { default: mongoose } = require("mongoose");
+require('dotenv').config()
 
 const bodyParser=require("body-parser");
 app.use(express.json());
@@ -21,9 +22,13 @@ app.use(function(req, res, next) {
 
 
 //Mongoose connection
-// const uri=process.env.ATLAS_URI;
-mongoose.connect("mongodb+srv://Gyan-admin:Johnny@cluster0.etwvq.mongodb.net/test?retryWrites=true&w=majority")
+const ATLAS_URI=process.env.ATLAS_URI;
+mongoose.connect(ATLAS_URI, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true
+    })
 const connection=mongoose.connection;
+// console.log(ATLAS_URI);
 connection.once('open',()=>{
     console.log("mongodb connected");
 })

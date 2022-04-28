@@ -7,7 +7,7 @@ import AppCounter from "./components/appbar/AppCounter";
 import AppDelete from "./components/appbar/AppDelete";
 import ControlInputs from "./components/appcontrols/ControlInputs";
 import MealItems from "./components/AppMealItems/MealItems";
-import Pagin from "./components/Pagination";
+import Pagination from "./components/Pagination";
 import axios from "axios";
 
 const App = () => {
@@ -113,7 +113,7 @@ const App = () => {
       <div className="meals_container">
        <MealItems meals={currentMeals} deletemealhandler={deletemealhandler} />
       </div>
-      <Pagin
+      <Pagination
         totalMeals={meals.length}
         mealsperPage={mealsperPage}
         paginate={paginate}
