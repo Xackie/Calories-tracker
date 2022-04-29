@@ -10,7 +10,7 @@ import MealItems from "./components/AppMealItems/MealItems";
 import Pagination from "./components/Pagination";
 import axios from "axios";
 
-// const BackendApiBaseUrl = process.env.REACT_APP_BASE_URL;
+const BackendApiBaseUrl = process.env.REACT_APP_BASE_URL;
 // console.log(BackendApiBaseUrl);
 
 const App = () => {
@@ -39,11 +39,11 @@ const App = () => {
       // localStorage.setItem("meals",JSON.stringify(newmeals));
 
       axios
-        .post("http://localhost:8888/meals/add", {
+        .post(`${BackendApiBaseUrl}/meals/add`, {
           mealname,
           calories,
         })
-        .then(() => axios.get("http://localhost:8888/meals/"))
+        .then(() => axios.get(`${BackendApiBaseUrl}/meals/`))
         .then((res) => setmeals(res.data));
     }
     console.log(Meal);
@@ -57,8 +57,8 @@ const App = () => {
 
     //  localStorage.setItem("meals",JSON.stringify(newmeals));
     axios
-      .delete(`http://localhost:8888/meals/${id}`)
-      .then(() => axios.get("http://localhost:8888/meals/"))
+      .delete(`${BackendApiBaseUrl}/meals/${id}`)
+      .then(() => axios.get(`${BackendApiBaseUrl}/meals/`))
       .then((res) => setmeals(res.data));
 
     console.log(newmeals);
@@ -67,8 +67,8 @@ const App = () => {
   const alldeletehandler = () => {
     meals?.map((meals) =>
       axios
-        .delete(`http://localhost:8888/meals/${meals._id}`)
-        .then(() => axios.get("http://localhost:8888/meals/"))
+        .delete(`${BackendApiBaseUrl}}/${meals._id}`)
+        .then(() => axios.get(`${BackendApiBaseUrl}/meals/`))
     );
 
     // .then((res) => setmeals(res.data));
@@ -78,7 +78,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8888/meals/")
+      .get(`${BackendApiBaseUrl}/meals/`)
       .then((res) => setmeals(res.data));
   }, [setmeals]);
 
