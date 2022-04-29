@@ -23,20 +23,18 @@ app.use(function (req, res, next) {
 });
 
 //Mongoose connection
-const  DB_Connection= process.env.DB_Host;
+const  DB_Connection= process.env.ATLAS_URI;
 mongoose.connect(DB_Connection, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 }).catch((error) => console.error(error));
 console.log(DB_Connection);
-// console.log(process.env.ATLAS_URI);
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("mongodb connected");
 });
 
 const mealsRouter = require("./routes/meals");
-const { log } = require("console");
 app.use("/meals", mealsRouter);
 
 app.get("/", (req, res) => res.send("Response from the GET request"));
