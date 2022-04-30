@@ -9,10 +9,12 @@ import ControlInputs from "./components/appcontrols/ControlInputs";
 import MealItems from "./components/AppMealItems/MealItems";
 import Pagination from "./components/Pagination";
 import axios from "axios";
-
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 const BackendApiBaseUrl = process.env.REACT_APP_BASE_URL;
 console.log(BackendApiBaseUrl);
 
+// toast.configure()
 const App = () => {
   const [meals, setmeals] = useState([]);
   const [mealname, setmealname] = useState("");
@@ -33,7 +35,8 @@ const App = () => {
     const newmeals = oldmeal.concat(Meal);
 
     if (mealname === "" || calories <= 0) {
-      alert("fields Cant be empty");
+      // ErrorTostAlert();
+     alert("An entry is required or has an invalid value. Please try again!")
     } else {
       setmeals(newmeals);
       // localStorage.setItem("meals",JSON.stringify(newmeals));
@@ -51,6 +54,17 @@ const App = () => {
     setcalories(0);
   };
 
+  // const successTostAlert=()=>{
+  //   toast.success('Meal added successfully', {position: toast.POSITION.TOP_CENTER})
+
+  // }
+  // const ErrorTostAlert=()=>{
+  //   toast.error('An entry is required or has an invalid value. Please try again!', {position: toast.POSITION.TOP_CENTER});
+
+  // }
+  
+ 
+
   const deletemealhandler = (id) => {
     const oldmeal = [...meals];
     const newmeals = oldmeal.filter((Meal) => Meal.id !== id);
@@ -67,9 +81,10 @@ const App = () => {
   const alldeletehandler = () => {
     meals?.map((meals) =>
       axios
-        .delete(`${BackendApiBaseUrl}}/${meals._id}`)
+        .delete(`${BackendApiBaseUrl}/meals/${meals._id}`)
         .then(() => axios.get(`${BackendApiBaseUrl}/meals/`))
     );
+    
 
     // .then((res) => setmeals(res.data));
     setmeals([]);
@@ -107,12 +122,15 @@ const App = () => {
       <AppDelete alldeletehandler={alldeletehandler} meals={meals} />
       <ControlInputs
         addmealhandeler={addmealhandeler}
+        // successTostAlert={successTostAlert}
+        // ErrorTostAlert={ErrorTostAlert}
         meals={meals}
         mealname={mealname}
         calories={calories}
         setmealname={setmealname}
         setcalories={setcalories}
       />
+      {/* <ToastContainer /> */}
       <div className="meals_container">
        <MealItems meals={currentMeals} deletemealhandler={deletemealhandler} />
       </div>

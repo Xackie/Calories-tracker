@@ -4,10 +4,16 @@ import { CardContent } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 
+
 const ControlInputs=({addmealhandeler,calories,mealname,setmealname,setcalories})=> {
 const addmealsclick=()=>{
   addmealhandeler();
+  // TostAlert();
 }
+// const TostAlert=()=>{
+//   successTostAlert();
+//   ErrorTostAlert();
+// }
 const useStyles = makeStyles({
   card: {
     // boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
@@ -61,9 +67,10 @@ const useStyles = makeStyles({
 });
 
 //Triggering enter key to add a meal
+
 const handleEnter=()=> {
-// console.log("Enter key is pressed");
 addmealhandeler();
+TostAlert();
 }
 useKey("Enter",handleEnter);
 
@@ -80,11 +87,12 @@ useEffect(()=>{
     }
   }
 
-  document.addEventListener("keypress",handle);
+document.addEventListener("keypress",handle);
   return ()=>   document.addEventListener("keypress",handle);
 
 },[key])
 };
+
 
 const classes = useStyles();
 
@@ -105,7 +113,7 @@ const classes = useStyles();
        
                 <Button className={classes.button} onClick={addmealsclick}  onKeyPress={(e) => e.key === 'Enter' && handleEnter()}>Add Meal</Button> 
 
-
+              
         </Card>
        
   )
