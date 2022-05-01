@@ -70,7 +70,7 @@ const useStyles = makeStyles({
 
 const handleEnter=()=> {
 addmealhandeler();
-TostAlert();
+// TostAlert();
 }
 useKey("Enter",handleEnter);
 

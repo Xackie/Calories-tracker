@@ -22,6 +22,23 @@ const App = () => {
   const [currentPage, setcurrentPage] = useState(1);
   const [mealsperPage] = useState(5);
 
+  // const makeAPICall = async () => {
+  //   try {
+  //     const response = await fetch('http://localhost:8888', {mode:'cors'});
+  //     const data = await response.json();
+  //     console.log({ data })
+  //   }
+  //   catch (e) {
+  //     console.log(e)
+  //   }
+  // }
+  // useEffect(() => {
+  //   makeAPICall();
+  // }, [])
+
+
+
+
   const addmealhandeler = () => {
     const oldmeal = meals ? [...meals] : [];
 
